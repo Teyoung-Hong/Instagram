@@ -1,0 +1,12 @@
+<div class="user__edit--wrapper">
+  <div class="user__box--wrapper">
+    <%= form_for @user do |u| %>
+      <%= u.text_field :user_name, class:"form__textfield" %>
+      <%= u.text_field :display_name, class:"form__textfield" %>
+      <%= u.text_area :introduction, class:"form__textarea" %>
+      <%= u.attachment_field :user_image, class:"form__attachment" %>
+      <%= u.submit '完了', class:"btn btn__done" %>
+    <% end %>
+  </div>
+</div>
+

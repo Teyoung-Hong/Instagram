@@ -1,0 +1,125 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+/* reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+header {
+  background-color:black;
+}
+
+span {
+  color:white;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  background-color: #fafafa;
+}
+/* common */
+
+.clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* header */
+
+.header{
+  display: flex;
+  height: 7.5rem;
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,.0975);
+}
+
+.header__left{
+  display: flex;
+  line-height: 7.5rem;
+  width: 21%;
+  margin-left: 12%;
+}
+
+.header__left--image{
+  width: 2.4rem;
+  height: 2.4rem;
+  background-image: url('icon_instagram.png');
+  background-position: center;
+  background-size: cover;
+  margin-top: 2.7rem;
+}
+
+.header__left--line {
+  color: lightgray;
+  font-size: 2.5rem;
+  margin: 0 1rem;
+}
+
+.header__left--title, .header__left--title a {
+  font-size: 3rem;
+  font-family: cursive;
+}
+
+.header__center{
+  height: 100%;
+  width: 33%;
+}
+
+.header__search{
+  border: 1px solid lightgray;
+  background-color: ghostwhite;
+  height: 3rem;
+  width: 60%;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  margin: 2.5rem auto 0 auto;
+  line-height: 2rem;
+  text-align: center;
+  color: gray;
+  border-radius: 0.5rem;
+}
+
+.header__right{
+  width: 33%;
+}
+
+.header__right--lists{
+  display: flex;
+}
+
+.header__right--list, .header__right--list a{
+  margin: 0 1rem;
+  font-size: 2rem;
+  line-height: 7.5rem;
+

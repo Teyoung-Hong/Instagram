@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lish</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="header">
+      <div class="header__left">
+        <div class="header__left--image"></div>
+        <p class="header__left--line">|</p>
+        <h1 class="header__left--title"><%=link_to 'Instagram', root_path %></h1>
+      </div>
+      <% if user_signed_in? %>
+      <div class="header__center">
+        <div class="header__search form__search">検索する</div>
+      </div>
+      <div class="header__right">
+        <nav class="header__nav">
+          <ul class="header__right--lists">
+            <li class="header__right--list explore">explore</li>
+            <li class="header__right--list notice">notice</li>
+            <li class="header__right--list mypage"><%= link_to 'maypage', user_path(current_user.id) %></li>
+            <li class="header__right--list logout"><%= link_to 'LG', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </nav>
+      </div>
+      <% end %>
+    </div>
+    <%= yield %>
+  </body>
+</html>

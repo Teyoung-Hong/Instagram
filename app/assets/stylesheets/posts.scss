@@ -1,0 +1,174 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* index */
+
+.post__index--wrapper{
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 5rem;
+  display: flex;
+}
+
+.post__box--left {
+  max-width:60%;
+  margin-right: 10%;
+}
+
+.post__box--right{
+  width: 30%;
+}
+
+.post__inner--left{
+  background-color: white;
+  border: 1px solid lightgray;
+  margin-bottom: 5rem;
+}
+
+.post__inner--right {
+  
+}
+
+.post__header{
+  display: flex;
+  height: 5rem;
+}
+
+.post__header--image{
+  width: 6rem;
+  text-align: center;
+}
+
+.post__header--image img{
+  width: 4rem;
+  margin-top: 10%;
+}
+
+.post__header--name {
+  line-height: 5rem;
+  margin: 0 2rem;
+}
+
+.post__header--name a {
+  font-size: 1.8rem;
+}
+
+.post__header--edit {
+  line-height: 5rem;
+}
+
+.post__header--edit a {
+  font-size: 1.2rem;
+}
+
+.post__image--wrapper {
+  display: inline-block;
+}
+
+.post__image{
+  max-width: 100%;
+  height: auto;
+}
+
+.post__content{
+
+}
+
+.post__comment{
+
+}
+
+.comment__text--wrapper {
+  display: flex;
+  line-height:2rem;
+}
+
+.comment__user--image img {
+  max-width: 2rem;
+}
+
+.comment__user--name {
+  margin: 0 2rem;
+}
+
+.user__infos{
+  display:flex;
+}
+
+.user__info--image{
+  margin-right: 2rem;
+}
+
+.user__info--image img{
+  max-width: 5rem;
+  border-radius: 50%;
+}
+
+.user__info--text{
+  padding: 0.7rem 0;
+}
+
+.user__info--user-name{
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.user__info--display-name{
+  color: gray;
+  font-size: 1.1rem;
+}
+
+.user__lists{
+  border: 1px solid lightgray;
+  background: white;
+}
+
+.user__lists--header{
+  padding: 1rem;
+}
+
+.user__header--left{
+  color: gray;
+  font-size: 1.5rem;
+  float: left;
+}
+
+.user__header--right{
+  font-weight: 600;
+  float: right;
+}
+
+.user__header--right a{
+  font-size: 1.1rem;
+}
+
+.user__list{
+  display: flex;
+}
+
+.user__list--top{
+  margin-right: 1rem;
+}
+
+.user__list--top img{
+  max-width: 5rem;
+  border-radius: 50%;
+}
+
+.user__list--bottom {
+  
+}
+.user__list--user-name{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.user__list--status{
+
+}
+
+.user__list--follow{
+  
+}
+

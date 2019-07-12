@@ -1,0 +1,67 @@
+<div class="post__index--wrapper">
+  <div class="post__box--left">
+    <% @posts.each do |p| %>
+      <div class="post__inner--left">
+        <div class="post__header">
+          <p class="post__header--image"><%= attachment_image_tag p.user, :user_image, format:'jpeg', fallback:'no_image.jpg', class:"" %></p>
+          <p class="post__header--name"><%= link_to "#{p.user.user_name}", user_path(p.user.id) %></p>
+          <p class="post__header--edit">
+            <%= link_to 'setting', edit_post_path(p.id) %>
+          </p>
+        </div>
+        <div class="post__image--wrapper">
+          <%= attachment_image_tag p, :post_image, format:'jpeg', fallback:'no_image.jpg', class:"post__image post" %>
+        </div>
+        <div class="post__content">
+          <%= p.post_text %>
+          <%= p.tags.first.hashtag %>
+        </div>
+        <div class="post__comment">
+          <%= p.comments.each do |comment|%>
+            <div class="comment__text--wrapper">
+              <p class="comment__user--image"><%= attachment_image_tag comment.user, :user_image, format:'jpeg',fallback:'no_image.jpg' %></p>
+              <p class="comment__user--name"><%= comment.user.display_name %></p>
+              <p class="comment__text"><%= comment.comment %></p>
+            </div>
+          <% end %>
+	        <%= form_for [p, @new_comment] do |c| %>
+	          <%= c.text_area :comment, placeholder:"コメントを書く" %>
+	          <%= c.submit '送信', class:"btn btn__done" %>
+	        <% end %>
+        </div>
+      </div><!-- post__box-inner  -->
+    <% end %> <!-- @post.each end -->
+  </div> <!-- post__box-wrapper -->
+  <div class="post__box--right">
+    <div class="post__inner--right">
+      <div class="user__infos">
+        <div class="user__info--image">
+          <%= attachment_image_tag current_user, :user_image %>
+        </div>
+        <div class="user__info--text">
+          <p class="user__info--user-name"><%= current_user.user_name %></p>
+          <p class="user__info--display-name"><%= current_user.display_name %></p>
+        </div>
+      </div>
+      <div class="user__lists">
+        <div class="user__lists--header clearfix">
+          <div class="user__header--left">おすすめ</div>
+          <div class="user__header--right">
+            <%= link_to 'すべて見る', users_path %>
+          </div>
+        </div>
+        <% @users.each do |user| %>
+        <div class="user__list">
+          <div class="user__list--top"><%= attachment_image_tag user, :user_image %></div>
+          <div class="user__list--bottom">
+            <div class="user__list--user-name"><%= user.user_name %></div>
+            <div class="user__list--status">フォローされています。</div>
+            <div class="user__list--follow"><%= render 'relationships/follow_button', user:user %></div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class=""></div>
+    </div>
+  </div>
+</div> <!-- post__index-wrapper -->

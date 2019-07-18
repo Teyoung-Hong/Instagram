@@ -1,13 +1,1 @@
-<div class="wrapper">
-  <div class="new__wrapper">
-    <%= form_for @new_post do |p| %>
-      <%= p.attachment_field :post_image, class:"form__attachment" %>
-      <%= p.text_area :post_text, class:"form__textfield", placeholder:'Why you post it?' %>
-      <%= p.fields_for :tags do |tag| %>
-        <%= render 'tag_fields', p: tag %>
-      <% end %>
-      <%= p.submit '投稿', class:"btn btn__done" %>
-    <% end %>
-    <%= link_to_add_association "+ #", p, :tags %>
-  </div>
-</div>
+<%= render 'form', new_post: @new_post %>

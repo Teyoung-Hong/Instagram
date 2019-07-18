@@ -31,8 +31,15 @@ class User < ApplicationRecord
   end
 
   # functions
-  def self.search(search)
-    if search
+  def self.search(way, search)
+    case 
+    when way == "1"
+      where(["user_name LIKE ?", "#{search}%"])
+    when way == "2"
+      where(["user_name LIKE ?", "%#{search}"])
+    when way == "3"
+      where(["user_name LIKE ?", "#{search}"])
+    when way == "4"
       where(["user_name LIKE ?", "%#{search}%"])
     else   
       all  

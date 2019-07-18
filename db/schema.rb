@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_18_084627) do
+ActiveRecord::Schema.define(version: 2019_07_18_102003) do
 
   create_table "comments", force: :cascade do |t|
     t.text "comment"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 2019_07_18_084627) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
-  create_table "tag_scores", force: :cascade do |t|
+  create_table "scores", force: :cascade do |t|
     t.integer "tag_id"
-    t.integer "score", default: 1, null: false
+    t.integer "level", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_tag_scores_on_tag_id"
+    t.index ["tag_id"], name: "index_scores_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|

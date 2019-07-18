@@ -4,12 +4,16 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
     # 後でユーザーidフォローしているか？条件分岐させてソートする
     @users = User.all
-    @user_search = if params[:search]
-      User.search(params[:search])
-    else
-      User.all
-    end
     @new_comment = Comment.new
+    @type = params[:type]
+    way = params[:way]
+    search = params[:search]
+    @search = 
+    if params[:type] == "1"
+      User.search(way, search)
+    else
+      Tag.search(way, search)
+    end
   end
 
   def show
@@ -29,8 +33,8 @@ class PostsController < ApplicationController
 
   def new
     @new_post = Post.new
-    @new_tag = @new_post.tags.build
-    @new_tag_score = @new_tag.tag_scores.build
+    new_tag = @new_post.tags.build
+    new_tag.scores.build
   end
 
   def create
@@ -46,6 +50,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:post_text, :post_image, tags_attributes: [:id, :hashtag, :_destroy, tag_scores_attributes: [:id, :score, :_destroy]])
+    params.require(:post).permit(:post_text, :post_image, tags_attributes: [:id, :hashtag, :_destroy, scores_attributes: [:id, :level, :_destroy]])
   end
 end

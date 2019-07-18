@@ -78,13 +78,22 @@
       <p class="close">×</p>
     </div>
     <div class="search__bottom">
-      <% @user_search.each do |user| %>
-      <div class="user__list">
-        <p class="user__info--image"><%= attachment_image_tag user, :user_image %></p>
-        <p class="user__info--user-name"><%= user.user_name %></p>
-        <p class="user__info--display-name"><%= user.display_name %></p>
-        <p class="user__list--status">フォローされています。</p>
-      </div>
+      <% @search.each do |search| %>
+      <% binding.pry %>
+        <% if @type == "1" %>
+          <div class="user__list">
+            <p class="user__info--image"><%= attachment_image_tag search, :user_image %></p>
+            <p class="user__info--user-name"><%= search.user_name %></p>
+            <p class="user__info--display-name"><%= search.display_name %></p>
+            <p class="user__list--status">フォローされています。</p>
+          </div>
+        <% elsif @type == "2" %>
+          <div class="hashtag__list">
+            <p class="hashtag__text"><%= search.hashtag %></div>
+          </div>
+        <% else %>
+          <div class="search__answer">Nothing hitted</div>
+        <% end %>
       <% end %>
     </div>
   </div>

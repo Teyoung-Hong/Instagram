@@ -20,8 +20,10 @@
       <div class="header__center">
         <%= form_tag(root_path, :method => "get") do %>
           <p class="header__search">
+            <%= select_tag "type", options_for_select([["ユーザー名", 1 ], ["ハッシュタグ", 2]]) %>
+            <%= select_tag "way", options_for_select([["前方一致", 1 ], ["後方一致", 2], ["全文一致", 3], ["部分一致", 4]]) %>
             <%= text_field_tag :search %>
-            <%= submit_tag "検索する", :user_name => nil %>
+            <%= submit_tag "検索する" %>
           </p>
         <% end %>
       </div>

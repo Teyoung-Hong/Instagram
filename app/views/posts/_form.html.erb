@@ -1,0 +1,14 @@
+<div class="wrapper">                    
+  <div class="new__wrapper">
+    <%= form_for new_post do |post| %>
+      <%= post.attachment_field :post_image, class:"form__attachment" %>
+      <%= post.text_area :post_text, class:"form__textfield", placeholder:'Why you post it?' %>
+      <%= post.fields_for :tags do |tag| %>
+        <%= render 'tag_fields', post: tag %>
+      <% end %>
+      <%= post.submit '投稿', class:"btn btn__done" %>
+      <div class="links">
+      </div>
+    <% end %>
+  </div>
+</div>

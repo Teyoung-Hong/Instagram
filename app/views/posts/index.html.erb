@@ -17,7 +17,7 @@
           <%= p.tags.first.hashtag %>
         </div>
         <div class="post__comment">
-          <%= p.comments.each do |comment|%>
+          <% p.comments.each do |comment|%>
             <div class="comment__text--wrapper">
               <p class="comment__user--image"><%= attachment_image_tag comment.user, :user_image, format:'jpeg',fallback:'no_image.jpg' %></p>
               <p class="comment__user--name"><%= comment.user.display_name %></p>
@@ -51,17 +51,40 @@
           </div>
         </div>
         <% @users.each do |user| %>
-        <div class="user__list">
-          <div class="user__list--top"><%= attachment_image_tag user, :user_image %></div>
-          <div class="user__list--bottom">
-            <div class="user__list--user-name"><%= user.user_name %></div>
-            <div class="user__list--status">フォローされています。</div>
-            <div class="user__list--follow"><%= render 'relationships/follow_button', user:user %></div>
+          <% if user.id != current_user.id %>
+          <div class="user__list">
+            <div class="user__list--top">
+              <%= attachment_image_tag user, :user_image %>
+            </div>
+            <div class="user__list--bottom">
+              <div class="user__list--bottom-left">
+                <div class="user__list--user-name"><%= link_to "#{user.user_name}", user_path(user.id) %></div>
+                <div class="user__list--status">フォローされています。</div>
+              </div>
+              <div class="user__list--follow">
+                <%= render 'relationships/follow_button', user:user %>
+              </div>
+            </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
       </div>
       <div class=""></div>
     </div>
   </div>
 </div> <!-- post__index-wrapper -->
+  <div class="search__wrapper">
+    <div class="search__top">
+      <p class="close">×</p>
+    </div>
+    <div class="search__bottom">
+      <% @user_search.each do |user| %>
+      <div class="user__list">
+        <p class="user__info--image"><%= attachment_image_tag user, :user_image %></p>
+        <p class="user__info--user-name"><%= user.user_name %></p>
+        <p class="user__info--display-name"><%= user.display_name %></p>
+        <p class="user__list--status">フォローされています。</p>
+      </div>
+      <% end %>
+    </div>
+  </div>

@@ -55,6 +55,25 @@ body {
   clear: both;
 }
 
+.post__new{
+  border-radius: 50%;
+  background-color: pink;
+  text-align: center;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+}
+
+.post__new a{
+  display: inline-block;
+  height: 5rem;
+  line-height: 4rem;
+  width: 5rem;
+  font-size: 4rem;  
+  color: white;
+}
+
 /* header */
 
 .header{

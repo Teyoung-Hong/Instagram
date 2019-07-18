@@ -1,3 +1,69 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.users__show--wrapper{
+  
+}
+
+.user__box--inner{
+  
+}
+.user__top{
+  width:70%;
+  margin:0 auto;
+  padding-top: 5rem;
+  display: flex;
+}
+
+.top__icon--wrapper{
+  margin-right: 1.5rem;
+  width: 35%;
+  text-align: center;
+}
+
+.top__icon{
+  max-width: 15rem;
+  border-radius: 50%;
+}
+
+.top__intro--top{
+  display: flex;
+}
+
+.intro__top--user-name{
+  font-size: 2.5rem;
+  margin-right: 2rem;
+}
+
+.intro__sub{
+  line-height: 4rem;
+}
+
+.top__intro--item{
+  font-size: 1.5rem;
+
+}
+
+.top__intro--item strong {
+  font-size: 1.5rem;  
+}
+
+.top__intro--middle{
+  display: flex;
+  margin :1.5rem auto;
+}
+
+
+.top__intro--display-name{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.top__intro--text{
+  font-siE: 1.5rem;   
+}
+
+
+
+
+
+
+
+

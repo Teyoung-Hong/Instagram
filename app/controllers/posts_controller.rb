@@ -2,13 +2,19 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
-# 後でユーザーwpフォローしているか？条件分岐させてソートする
+    # 後でユーザーidフォローしているか？条件分岐させてソートする
     @users = User.all
+    @user_search = if params[:search]
+      User.search(params[:search])
+    else
+      User.all
+    end
     @new_comment = Comment.new
   end
 
   def show
     @post = Post.find(params[:id])
+    @new_comment = Comment.new
   end
 
   def edit
@@ -23,7 +29,8 @@ class PostsController < ApplicationController
 
   def new
     @new_post = Post.new
-    @new_post.tags.build
+    @new_tag = @new_post.tags.build
+    @new_tag_score = @new_tag.tag_scores.build
   end
 
   def create
@@ -33,9 +40,12 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+#  def search 
+ #   @users = User.search(params[:search])
+  #end
+
   private
   def post_params
-    params.require(:post).permit(:post_text, :post_image, tags_attributes: [:id, :hashtag, :_destroy])
+    params.require(:post).permit(:post_text, :post_image, tags_attributes: [:id, :hashtag, :_destroy, tag_scores_attributes: [:id, :score, :_destroy]])
   end
-
 end

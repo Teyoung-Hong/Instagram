@@ -1,5 +1,9 @@
 <div class="nested-fields">
   <div class="form__field">
     <%= p.text_field :hashtag, placeholder:"#hashtag", class:"form__textfield" %>
+    <%= p.fields_for :tag_scores do |tag_score| %>
+      <%= render 'tag_score_fields', p: tag_score %>
+    <% end %>
+    <%= link_to_add_association "+ #", p, :tag_scores %>
   </div>
 </div>

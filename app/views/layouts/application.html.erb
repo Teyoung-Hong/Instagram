@@ -18,7 +18,12 @@
       </div>
       <% if user_signed_in? %>
       <div class="header__center">
-        <div class="header__search form__search">検索する</div>
+        <%= form_tag(root_path, :method => "get") do %>
+          <p class="header__search">
+            <%= text_field_tag :search %>
+            <%= submit_tag "検索する", :user_name => nil %>
+          </p>
+        <% end %>
       </div>
       <div class="header__right">
         <nav class="header__nav">
@@ -33,5 +38,6 @@
       <% end %>
     </div>
     <%= yield %>
+    <p class="post__new"><%= link_to '+', new_post_path %></p>
   </body>
 </html>

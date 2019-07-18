@@ -10,4 +10,5 @@ class Post < ApplicationRecord
 
   # cocoon nest
   accepts_nested_attributes_for :tags, allow_destroy: true
+
 end

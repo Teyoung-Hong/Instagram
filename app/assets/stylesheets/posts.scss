@@ -94,6 +94,7 @@
 
 .user__infos{
   display:flex;
+  margin-bottom: 2rem;
 }
 
 .user__info--image{
@@ -122,10 +123,11 @@
 .user__lists{
   border: 1px solid lightgray;
   background: white;
+  padding: 1.5rem;
 }
 
 .user__lists--header{
-  padding: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .user__header--left{
@@ -145,21 +147,27 @@
 
 .user__list{
   display: flex;
+  margin-bottom: 1.2rem;
 }
 
 .user__list--top{
-  margin-right: 1rem;
+  margin-right: 1.5rem;
 }
 
 .user__list--top img{
-  max-width: 5rem;
+  max-width: 3rem;
   border-radius: 50%;
 }
 
 .user__list--bottom {
-  
+  display: flex; 
 }
-.user__list--user-name{
+
+.user__list--bottom-left{
+     
+}
+
+.user__list--user-name a{
   font-size: 1.2rem;
   font-weight: 600;
 }

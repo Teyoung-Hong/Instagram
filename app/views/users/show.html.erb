@@ -3,27 +3,27 @@
     <div class="user__top">
       <div class="top__icon--wrapper">
         <%= attachment_image_tag @user, :user_image, format:'jpeg', fallback:'no_image.jpg', class:"top__icon" %>
-      </div>
+      </div><!-- top__icon-wrapper -->
       <div class="top__intro--wrapper">
         <div class="top__intro--top">
-          <p><%= @user.user_name %></p>
+          <p class="intro__top--user-name"><%= @user.user_name %></p>
           <% if @user.id == current_user.id %>
-            <p><%= link_to 'プロフィールを編集', edit_user_path(@user.id) %></p>
+            <p class="intro__sub"><%= link_to 'プロフィールを編集', edit_user_path(@user.id) %></p>
           <% else %>
             <%= render 'relationships/follow_button', user:@user %>
           <% end %>
           <p><!-- setting button here --></p>
-        </div>        
+        </div><!-- top__intro-top -->
         <div class="top__intro--middle">
-          <p class="">投稿<strong><%= @user.posts.count %></strong>件</p>
-          <p class="">フォロー<strong><%= @user.followings.count %></strong>人</p>
-          <p class="">フォロワー<strong><%= @user.followers.count %></strong>人</p>
-        </div>        
+          <p class="top__intro--item">投稿<strong><%= @user.posts.count %></strong>件</p>
+          <p class="top__intro--item">フォロー<strong><%= @user.followings.count %></strong>人</p>
+          <p class="top__intro--item">フォロワー<strong><%= @user.followers.count %></strong>人</p>
+        </div><!-- top__intro-middle -->
         <div class="top__intro--bottom">
-          <p class=""><%= @user.display_name %></p>
-          <p class=""><%= @user.introduction %></p>
-        </div>        
-      </div>
-    </div>
-  </div>
-</div>
+          <p class="top__intro--display-name"><%= @user.display_name %></p>
+          <p class="top__intro--text"><%= @user.introduction %></p>
+        </div><!-- top__intro-bottom -->
+      </div><!-- top__intro-wrapper -->
+    </div><!-- user__top -->
+  </div><!-- user__box-inner -->
+</div><!-- user__show-wrapper -->

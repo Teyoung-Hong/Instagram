@@ -30,5 +30,12 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
 
-
+  # functions
+  def self.search(search)
+    if search
+      where(["user_name LIKE ?", "%#{search}%"])
+    else   
+      all  
+    end       
+  end
 end
